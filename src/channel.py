@@ -14,7 +14,7 @@ class Channel:
         os.environ['YT_API_KEY'] = "AIzaSyDaIAl0rWZyaQ49BEF5gM7-W7c3Butbdms"
         api_key: str = os.getenv('YT_API_KEY')
         youtube = build('youtube', 'v3', developerKey=api_key)
-        data = youtube.channels().list(id='UC-OVMPlMA3-YCIeg4z5z23A', part='snippet,statistics').execute()
+        data = youtube.channels().list(id=self.__channel_id, part='snippet,statistics').execute()
         self.title = data['items'][0]['snippet']['title']
         self.video_count = data['items'][0]['statistics']['videoCount']
         self.url = data['items'][0]['snippet']['thumbnails']['default']['url']
@@ -22,12 +22,27 @@ class Channel:
         self.subscribers = data['items'][0]['statistics']['subscriberCount']
         self.view_count = data['items'][0]['statistics']['viewCount']
 
+    def __str__(self):
+        return f'{self.title}({self.url})'
+
+    def __add__(self, other):
+        return int(self.subscribers) + int(other.subscribers)
+
+    def __sub__(self, other):
+        return int(other.subscribers) - int(self.subscribers)
+
+    def __gt__(self, other):
+        return int(self.subscribers) > int(other.subscribers)
+
+    def __ge__(self, other):
+        return int(self.subscribers) >= int(other.subscribers)
+
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
         os.environ['YT_API_KEY'] = "AIzaSyDaIAl0rWZyaQ49BEF5gM7-W7c3Butbdms"
         api_key: str = os.getenv('YT_API_KEY')
         youtube = build('youtube', 'v3', developerKey=api_key)
-        data = youtube.channels().list(id='UC-OVMPlMA3-YCIeg4z5z23A', part='snippet,statistics').execute()
+        data = youtube.channels().list(id=self.__channel_id , part='snippet,statistics').execute()
         data1 = json.dumps(data, indent=2, ensure_ascii=False)
         print(data1)
 
