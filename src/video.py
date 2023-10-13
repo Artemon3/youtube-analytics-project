@@ -1,5 +1,4 @@
 import os
-from src.channel import Channel
 from googleapiclient.discovery import build
 
 
@@ -36,4 +35,3 @@ class PLVideo(Video):
 
     def __str__(self):
         return f'{self.title}'
-

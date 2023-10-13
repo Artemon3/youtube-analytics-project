@@ -6,6 +6,7 @@ authors = ["Artemon3"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+build = "^1.0.3"
 
 [tool.poetry.dev-dependencies]
 
