@@ -26,11 +26,6 @@ class PLVideo(Video):
 
     def __init__(self, video_id, playlist_id):
         super().__init__(video_id)
-        data = self.get_service().videos().list(id=self.video_id, part='snippet,statistics,contentDetails').execute()
-        self.title = data['items'][0]['snippet']['title']
-        self.url = data['items'][0]['snippet']['thumbnails']['default']['url']
-        self.view_count = data['items'][0]['statistics']['viewCount']
-        self.like_count = data['items'][0]['statistics']['likeCount']
         self.playlist_id = playlist_id
 
     def __str__(self):
