@@ -26,6 +26,17 @@ optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 
 [[package]]
+name = "isodate"
+version = "0.6.1"
+description = "An ISO 8601 date/time/duration parser and formatter"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+
+[[package]]
 name = "packaging"
 version = "23.2"
 description = "Core utilities for Python packages"
@@ -41,13 +52,23 @@ category = "main"
 optional = false
 python-versions = ">=3.7"
 
+[[package]]
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.11"
-content-hash = "b2715c6a439db206a2fecd110632fef355eeebb6a73cbf3728cb4fd3bfc9a3eb"
+content-hash = "9bf4e5396e9e8197fe81ca50fd4625421ba491958e73433212fd1b307d52a829"
 
 [metadata.files]
 build = []
 colorama = []
+isodate = []
 packaging = []
 pyproject-hooks = []
+six = []
